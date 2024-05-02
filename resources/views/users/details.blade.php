@@ -28,13 +28,13 @@
                             <div class="d-flex">
                                 {{ $movie['title'] }}
                                 <a class="mx-1" href="{{ route('movies.details', $movie['id']) }}">(Details)</a>
-                                {{--  @if(session ('email') === $user->email)
+                                @if(session ('email') === $user->email)
                                 <form action="{{ route('users.favorites.remove', $movie['id']) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-outline-danger btn-sm my-1">Delete</button>
                                 </form>
-                                @endif  --}}
+                                @endif
                             </div>
                         </li>
                     @endforeach

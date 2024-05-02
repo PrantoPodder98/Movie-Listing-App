@@ -57,23 +57,6 @@ class UserController extends Controller
 
         return view('users.index', ['users' => $users]);
     }
-    
-    public function addToFavorites($id)
-    {
-        $email = session('email');
-        $user = User::loadFromFile($email);
-
-        if ($user === null) {
-            return view('errors.404');
-        }
-
-        if (!in_array($id, $user->favorites)) {
-            $user->favorites[] = $id;
-            $user->saveToFile();
-        }
-
-        return redirect()->back();
-    }
 
     public function viewDetails($email)
     {
@@ -98,7 +81,48 @@ class UserController extends Controller
         return view('users.details', ['user' => $user, 'movieNames' => $movieNames]);
     }
 
-    
+    public function addToFavorites($id)
+    {
+        $email = session('email');
+        $user = User::loadFromFile($email);
 
+        if ($user === null) {
+            return view('errors.404');
+        }
+
+        if (!in_array($id, $user->favorites)) {
+            $user->favorites[] = $id;
+            $user->saveToFile();
+        }
+
+        return redirect()->back();
+    }
+
+    public function removeFromFavorites($id)
+    {
+        $email = session('email');
+        $user = User::loadFromFile($email);
+
+        if ($user === null) {
+            return view('errors.404');
+        }
+
+        $key = array_search($id, $user->favorites);
+
+        if ($key !== false) {
+            unset($user->favorites[$key]);
+            $user->favorites = array_values($user->favorites); // Reindex the array
+            $user->saveToFile();
+        }
+
+        return redirect()->route('users.details', ['email' => $user->email]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('email');
+
+        return redirect()->route('login.form');
+    }
 
 }
