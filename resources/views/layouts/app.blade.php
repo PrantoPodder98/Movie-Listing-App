@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('movies.all') }}">Movies</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('users.all') }}">All Users</a>
+                </li>
                 @if (session('email'))
                     <li class="nav-item">
                         <a class="nav-link"

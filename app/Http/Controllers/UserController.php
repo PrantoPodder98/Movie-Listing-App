@@ -50,6 +50,14 @@ class UserController extends Controller
         }
     }
 
+    public function index()
+    {
+        $filePath = 'users.json';
+        $users = json_decode(file_get_contents($filePath), true);
+
+        return view('users.index', ['users' => $users]);
+    }
+    
     public function addToFavorites($id)
     {
         $email = session('email');
@@ -91,4 +99,6 @@ class UserController extends Controller
     }
 
     
+
+
 }
