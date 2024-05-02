@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('movies.all') }}">Movies</a>
+                    <a class="nav-link" href="{{ route('movies.all') }}">All Movies</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('users.all') }}">All Users</a>
@@ -32,6 +32,16 @@
                     </li>
                 @endif
             </ul>
+            @if(session('email'))
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="nav-link">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            @endif
            
         </div>
     </nav>

@@ -23,6 +23,7 @@ Route::get('/register', [UserController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/movies', [MovieController::class, 'all_movie'])->name('movies.all');
 Route::get('/movies/{id}/details', [MovieController::class, 'viewDetails'])->name('movies.details');
