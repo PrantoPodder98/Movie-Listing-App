@@ -15,7 +15,9 @@
         <a class="navbar-brand" href="#">Movie App</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-               
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('movies.all') }}">Movies</a>
+                </li>
             </ul>
            
         </div>
