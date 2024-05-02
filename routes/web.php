@@ -28,4 +28,4 @@ Route::get('/movies', [MovieController::class, 'all_movie'])->name('movies.all')
 Route::get('/movies/{id}/details', [MovieController::class, 'viewDetails'])->name('movies.details');
 
 Route::post('/user/favorites/{id}', [UserController::class, 'addToFavorites'])->name('users.favorites.add');
-
+Route::get('/user/{email}/details', [UserController::class, 'viewDetails'])->name('users.details');

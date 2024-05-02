@@ -66,4 +66,29 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function viewDetails($email)
+    {
+        $user = User::loadFromFile($email);
+
+        if ($user === null) {
+            return view('errors.404');
+        }
+
+        // Load movies from a file or a database
+        $filePath = 'movies.json';
+        $movies = json_decode(file_get_contents($filePath), true);
+
+        // Map movie IDs to their names
+        $movieNames = [];
+        foreach ($user->favorites as $id) {
+            if (isset($movies[$id])) {
+                $movieNames[] = ['id' => $id, 'title' => $movies[$id - 1]['title']];
+            }
+        }
+
+        return view('users.details', ['user' => $user, 'movieNames' => $movieNames]);
+    }
+
+    
 }
