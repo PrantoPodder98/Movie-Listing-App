@@ -28,6 +28,9 @@
                     </li>
                 @else
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register.form') }}">Register</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('login.form') }}">Login</a>
                     </li>
                 @endif
