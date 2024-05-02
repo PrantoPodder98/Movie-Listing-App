@@ -12,15 +12,15 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between card-header mb-4">
                     <h2>Favourite Movie</h2>
-                    {{--  <form action="{{ route('users.favorites.search', $user->email) }}" method="POST" class="mb-3">
+                    <form action="{{ route('users.favorites.search', $user->email) }}" method="POST" class="mb-3">
                         @csrf
                         <div class="input-group">
-                            <input type="text" name="query" class="form-control" placeholder="Search for movies...">
+                            <input type="text" name="query" class="form-control" placeholder="Search Title/Cast/Category">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="submit">Search</button>
                             </div>
                         </div>
-                    </form>  --}}
+                    </form>
                 </div>
                 <ul>
                     @foreach ($movieNames as $movie)

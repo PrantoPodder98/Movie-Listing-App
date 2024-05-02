@@ -34,3 +34,4 @@ Route::get('/user/{email}/details', [UserController::class, 'viewDetails'])->nam
 
 Route::post('/user/favorites/{id}', [UserController::class, 'addToFavorites'])->name('users.favorites.add');
 Route::delete('/user/favorites/{id}', [UserController::class, 'removeFromFavorites'])->name('users.favorites.remove');
+Route::post('/user/{email}/favorites/search', [MovieController::class, 'searchFavorites'])->name('users.favorites.search');
