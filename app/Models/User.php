@@ -10,35 +10,38 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    public $email;
+    public $favorites = [];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    public function __construct($email, $favorites = []) {
+        $this->email = $email;
+        $this->favorites = $favorites;
+    }
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public function saveToFile() {
+        $users = [];
+        $filePath = 'users.json';
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+        if (file_exists($filePath)) {
+            $users = json_decode(file_get_contents($filePath), true);
+        }
+
+        $users[$this->email] = $this->favorites;
+
+        file_put_contents($filePath, json_encode($users));
+    }
+
+    public static function loadFromFile($email) {
+        $filePath = 'users.json';
+
+        if (file_exists($filePath)) {
+            $users = json_decode(file_get_contents($filePath), true);
+
+            if (array_key_exists($email, $users)) {
+                return new User($email, $users[$email]);
+            }
+        }
+
+        return null;
+    }
 }
