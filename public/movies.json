@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "The Shawshank Redemption",
+        "category": "Drama",
+        "release_date": "1994-09-22",
+        "budget": "25000000",
+        "cast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"]
+    },
+    {
+        "id": 2,
+        "title": "The Godfather",
+        "category": "Crime, Drama",
+        "release_date": "1972-03-24",
+        "budget": "6000000",
+        "cast": ["Marlon Brando", "Al Pacino", "James Caan"]
+    },
+    {
+        "id": 3,
+        "title": "The Dark Knight",
+        "category": "Action, Crime, Drama",
+        "release_date": "2008-07-18",
+        "budget": "185000000",
+        "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
+    },
+    {
+        "id": 4,
+        "title": "Pulp Fiction",
+        "category": "Crime, Drama",
+        "release_date": "1994-10-14",
+        "budget": "8000000",
+        "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"]
+    },
+    {
+        "id": 5,
+        "title": "Fight Club",
+        "category": "Drama",
+        "release_date": "1999-10-15",
+        "budget": "63000000",
+        "cast": ["Brad Pitt", "Edward Norton", "Meat Loaf"]
+    },
+    {
+        "id": 6,
+        "title": "Forrest Gump",
+        "category": "Drama, Romance",
+        "release_date": "1994-07-06",
+        "budget": "55000000",
+        "cast": ["Tom Hanks", "Robin Wright", "Gary Sinise"]
+    },
+    {
+        "id": 7,
+        "title": "Inception",
+        "category": "Action, Adventure, Sci-Fi",
+        "release_date": "2010-07-16",
+        "budget": "160000000",
+        "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
+    },
+    {
+        "id": 8,
+        "title": "The Matrix",
+        "category": "Action, Sci-Fi",
+        "release_date": "1999-03-31",
+        "budget": "63000000",
+        "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"]
+    },
+    {
+        "id": 9,
+        "title": "Avengers: Endgame",
+        "category": "Action, Adventure, Drama",
+        "release_date": "2019-04-26",
+        "budget": "356000000",
+        "cast": ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"]
+    },
+    {
+        "id": 10,
+        "title": "The Lion King",
+        "category": "Animation, Adventure, Drama",
+        "release_date": "1994-06-24",
+        "budget": "45000000",
+        "cast": ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"]
+    }
+]
