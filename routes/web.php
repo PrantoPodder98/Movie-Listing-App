@@ -25,3 +25,4 @@ Route::get('/login', [UserController::class, 'showLoginForm'])->name('login.form
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
 Route::get('/movies', [MovieController::class, 'all_movie'])->name('movies.all');
+Route::get('/movies/{id}/details', [MovieController::class, 'viewDetails'])->name('movies.details');

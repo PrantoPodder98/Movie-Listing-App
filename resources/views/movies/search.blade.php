@@ -20,8 +20,8 @@
                                 @csrf
                                 <button type="submit" class="btn btn-primary mx-1">Favorite</button>
                             </form>
-                        @endif
-                        <a href="{{ route('movies.details', $movie['id']) }}" class="btn btn-secondary">Details</a>  --}}
+                        @endif  --}}
+                        <a href="{{ route('movies.details', $movie['id']) }}" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
             </div>
