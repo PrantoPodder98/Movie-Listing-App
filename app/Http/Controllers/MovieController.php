@@ -8,12 +8,17 @@ use App\Models\User;
 
 class MovieController extends Controller
 {
-    public function all_movie()
+    protected $allMovies;
+
+    public function __construct()
     {
         $filePath = 'movies.json';
-        $movies = json_decode(file_get_contents($filePath), true);
+        $this->allMovies = json_decode(file_get_contents($filePath), true);
+    }
 
-        return view('movies.search', ['movies' => $movies]);
+    public function all_movie()
+    {
+        return view('movies.search', ['movies' => $this->allMovies]);
     }
 
     public function viewDetails($id)
@@ -29,12 +34,9 @@ class MovieController extends Controller
 
     public function search(Request $request)
     {
-        $filePath = 'movies.json';
-        $allMovies = json_decode(file_get_contents($filePath), true);
-
         $query = strtolower($request->input('query'));
     
-        $movies = array_filter($allMovies, function ($movie) use ($query) {
+        $movies = array_filter($this->allMovies, function ($movie) use ($query) {
             foreach ($movie['cast'] as $castMember) {
                 if (strpos(strtolower($castMember), $query) !== false) {
                     return true;
@@ -60,20 +62,17 @@ class MovieController extends Controller
             return view('errors.404');
         }
 
-        $filePath = 'movies.json';
-        $movies = json_decode(file_get_contents($filePath), true);
-
         // Map movie IDs to their names
         $allFavMovies = [];
         foreach ($user->favorites as $id) {
-            if (isset($movies[$id-1])) {
+            if (isset($this->allMovies[$id-1])) {
                 $allFavMovies[] = [
-                    'id' => $id-1,
-                    'title' => $movies[$id-1]['title'],
-                    'cast' => $movies[$id-1]['cast'],
-                    'category' => $movies[$id-1]['category'],
-                    'release_date' => $movies[$id-1]['release_date'],
-                    'budget' => $movies[$id-1]['budget'],
+                    'id' => $id,
+                    'title' => $this->allMovies[$id-1]['title'],
+                    'cast' => $this->allMovies[$id-1]['cast'],
+                    'category' => $this->allMovies[$id-1]['category'],
+                    'release_date' => $this->allMovies[$id-1]['release_date'],
+                    'budget' => $this->allMovies[$id-1]['budget'],
                 ];
             }
         }

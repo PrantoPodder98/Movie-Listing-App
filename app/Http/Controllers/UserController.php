@@ -73,7 +73,7 @@ class UserController extends Controller
         // Map movie IDs to their names
         $movieNames = [];
         foreach ($user->favorites as $id) {
-            if (isset($movies[$id])) {
+            if (isset($movies[$id-1])) {
                 $movieNames[] = ['id' => $id, 'title' => $movies[$id - 1]['title']];
             }
         }
