@@ -4,7 +4,7 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <h1>All Movies</h1>
-            <form action="{{ route('movies.search') }}" method="POST" class="mb-3">
+            <form action="{{ route('movies.search') }}" method="GET" class="mb-3">
                 @csrf
                 <div class="input-group">
                     <input type="text" name="query" class="form-control" placeholder="Search Title/Cast/Category">
