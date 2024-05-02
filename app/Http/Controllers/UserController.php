@@ -49,4 +49,21 @@ class UserController extends Controller
             return redirect()->route('login.form')->withErrors(['email' => 'These credentials do not match our records.']);
         }
     }
+
+    public function addToFavorites($id)
+    {
+        $email = session('email');
+        $user = User::loadFromFile($email);
+
+        if ($user === null) {
+            return view('errors.404');
+        }
+
+        if (!in_array($id, $user->favorites)) {
+            $user->favorites[] = $id;
+            $user->saveToFile();
+        }
+
+        return redirect()->back();
+    }
 }

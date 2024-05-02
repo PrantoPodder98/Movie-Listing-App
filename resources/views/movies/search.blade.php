@@ -15,12 +15,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $movie['title'] }}</h5>
                     <div class="d-flex">
-                        {{--  @if (session('email'))
+                        @if (session('email'))
                             <form action="{{ route('users.favorites.add', $movie['id']) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-primary mx-1">Favorite</button>
                             </form>
-                        @endif  --}}
+                        @endif
                         <a href="{{ route('movies.details', $movie['id']) }}" class="btn btn-secondary">Details</a>
                     </div>
                 </div>
