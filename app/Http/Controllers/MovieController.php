@@ -25,4 +25,30 @@ class MovieController extends Controller
 
         return view('movies.details', ['movie' => $movie]);
     }
+
+    public function search(Request $request)
+    {
+        $filePath = 'movies.json';
+        $allMovies = json_decode(file_get_contents($filePath), true);
+
+        $query = strtolower($request->input('query'));
+    
+        $movies = array_filter($allMovies, function ($movie) use ($query) {
+            foreach ($movie['cast'] as $castMember) {
+                if (strpos(strtolower($castMember), $query) !== false) {
+                    return true;
+                }
+            }
+            return strpos(strtolower($movie['title']), $query) !== false
+                || strpos(strtolower($movie['category']), $query) !== false;
+        });
+    
+        // Sort movies in ascending order by title
+        usort($movies, function ($a, $b) {
+            return strcmp($a['title'], $b['title']);
+        });
+
+        return view('movies.search', ['movies' => $movies]);
+    }
+
 }

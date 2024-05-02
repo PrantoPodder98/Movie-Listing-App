@@ -27,6 +27,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/movies', [MovieController::class, 'all_movie'])->name('movies.all');
 Route::get('/movies/{id}/details', [MovieController::class, 'viewDetails'])->name('movies.details');
+Route::get('/movies/search', [MovieController::class, 'search'])->name('movies.search');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.all');
 Route::get('/user/{email}/details', [UserController::class, 'viewDetails'])->name('users.details');

@@ -4,10 +4,10 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <h1>All Movies</h1>
-            {{--  <form action="{{ route('movies.search') }}" method="GET">
+            <form action="{{ route('movies.search') }}" method="GET">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">Search</button>
-            </form>  --}}
+            </form>
         </div>
         
         @foreach ($movies as $movie)
