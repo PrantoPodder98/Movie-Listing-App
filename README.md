@@ -13,14 +13,14 @@
 
 ## ⚙️ Project Configuration (run the terminal)
 
-### **step 1: Git Pull**
+### **step 1: Git Clone**
 ```bash
-git pull origin main
+git clone https://github.com/PrantoPodder98/Movie-Listing-App.git
 ```
 
-### **Step 2: Update Composer Dependencies**
+### **Step 2: Install Composer Dependencies**
 ```bash
-composer update
+composer install
 ```
 
 ### **Step 3: Serve the Project**
